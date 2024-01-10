@@ -74,7 +74,7 @@
     <p id="myText2" onclick="copyText('myText2')">На ринку є "гравець" з мінімалною ціною "-"к і максимальною ціною "-"к. Викупіть його та надішліть скрін.</p>
     <label for="forNumber">Ставка:</label><br>
     <input type="number" id="forNumber" name="forNumber"><br><br>
-    <p id="myText3" onclick="copyText('myText3')">На ринку є "гравець" з мінімалною ціною "-"к і максимальною ціною "-". Поставте ставку "-"к та надішліть скрін.</p>
+    <p id="myText3" onclick="copyText('myText3')">На ринку є "гравець" з мінімалною ціною "-"к і максимальною ціною "-"к. Поставте ставку "-"к та надішліть скрін.</p>
 </div>
 <script>
     function changeText() {
@@ -88,9 +88,9 @@
         var myText3 = document.getElementById("myText3");
         myText.innerHTML = "Купіть " + word + " (до " + firstNumber + "к), виставте його з мінімалною ціною " + secondNumber + "к і максимальною ціною " + thirdNumber + "к. Надішліть скрін";
         myText.className = "blue";
-        myText2.innerHTML = "На ринку є " + word + " з мінімалною ціною " + secondNumber + " і максимальною ціною " + thirdNumber + ". Викупіть його та надішліть скрін.";
+        myText2.innerHTML = "На ринку є " + word + " з мінімалною ціною " + secondNumber + "к і максимальною ціною " + thirdNumber + "к. Викупіть його та надішліть скрін.";
         myText2.className = "blue";
-        myText3.innerHTML = "На ринку є " + word + " з мінімалною ціною " + secondNumber + " і максимальною ціною " + thirdNumber + ". Поставте ставку " + forNumber + " та надішліть скрін.";
+        myText3.innerHTML = "На ринку є " + word + " з мінімалною ціною " + secondNumber + "к і максимальною ціною " + thirdNumber + "к. Поставте ставку " + forNumber + "к та надішліть скрін.";
         myText3.className = "blue";
     }
 
