@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>
+    Text
+</title>
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #d8a667;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 0 20px;
+            }
+        }
+        .blue {
+            color: blue;
+        }
+
+        .purple {
+            color: purple;
+        }
+        input[type="text"], input[type="number"], button {
+            width: 600px;
+            height: 87px;
+            font-size: 50px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        #myText {
+            font-size: 34px;
+            cursor: pointer;
+        }
+        #myText2 {
+            font-size: 34px;
+            cursor: pointer;
+        }
+        #myText3 {
+            font-size: 34px;
+            cursor: pointer;
+        }
+        label {
+            font-size: 31px; /* Змінити розмір шрифту на необхідний */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <p id="myText" onclick="copyText('myText')">Купіть "гравець" ("ринкова ціна"), виставте його з мінімальною ціною "-"к і максимальною ціною "-"к. Надішліть скрін</p>
+
+    <label for="word">Гравець:</label><br>
+    <input type="text" id="word" name="word"><br>
+    <label for="firstNumber">Ринкова ціна:</label><br>
+    <input type="number" id="firstNumber" name="firstNumber"><br>
+    <label for="secondNumber">Мінімальна ціна:</label><br>
+    <input type="number" id="secondNumber" name="secondNumber"><br>
+    <label for="thirdNumber">Максимальна ціна:</label><br>
+    <input type="number" id="thirdNumber" name="thirdNumber"><br><br>
+    <button onclick="changeText()">Змінити текст</button>
+    <p id="myText2" onclick="copyText('myText2')">На ринку є "гравець" з мінімальною ціною "-"к і максимальною ціною "-"к. Викупіть його та надішліть скрін.</p>
+    <label for="forNumber">Ставка:</label><br>
+    <input type="number" id="forNumber" name="forNumber"><br><br>
+    <p id="myText3" onclick="copyText('myText3')">На ринку є "гравець" з мінімальною ціною "-"к і максимальною ціною "-"к. Поставте ставку "-"к та надішліть скрін.</p>
+</div>
+<script>
+    function changeText() {
+        var word = document.getElementById("word").value;
+        var firstNumber = document.getElementById("firstNumber").value;
+        var secondNumber = document.getElementById("secondNumber").value;
+        var thirdNumber = document.getElementById("thirdNumber").value;
+        var forNumber = document.getElementById("forNumber").value;
+        var myText = document.getElementById("myText");
+        var myText2 = document.getElementById("myText2");
+        var myText3 = document.getElementById("myText3");
+        myText.innerHTML = "Купіть " + word + " (до " + firstNumber + "к), виставте його з мінімальною ціною " + secondNumber + "к і максимальною ціною " + thirdNumber + "к. Надішліть скрін";
+        myText.className = "blue";
+        myText2.innerHTML = "На ринку є " + word + " з мінімальною ціною " + secondNumber + "к і максимальною ціною " + thirdNumber + "к. Викупіть його та надішліть скрін.";
+        myText2.className = "blue";
+        myText3.innerHTML = "На ринку є " + word + " з мінімальною ціною " + secondNumber + "к і максимальною ціною " + thirdNumber + "к. Поставте ставку " + forNumber + "к та надішліть скрін.";
+        myText3.className = "blue";
+    }
+
+    function copyText(elementId) {
+        var text = document.getElementById(elementId).innerText;
+        var textarea = document.createElement("textarea");
+        textarea.textContent = text;
+        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            if (document.execCommand("copy")) {
+                document.getElementById(elementId).className = "purple";
+            }
+        } catch (ex) {
+            console.warn("Copy to clipboard failed.", ex);
+            return false;
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+</script>
+
+</body>
+</html>
